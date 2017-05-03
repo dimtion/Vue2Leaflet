@@ -4,12 +4,12 @@
 <script>
 
 export default {
-    props: ['url','attribution', 'token'],
+    props: ['url','attribution', 'token', 'customkeys'],
     mounted() {
       this.$tileLayer = L.tileLayer(this.url, {
         attribution: this.attribution,
-        token: this.token
-      });
+        token: this.token,
+      } + this.customkeys);
     },
     methods: {
       deferredMountedTo(parent) {
